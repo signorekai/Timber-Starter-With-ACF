@@ -65,6 +65,7 @@ class StarterSite extends Timber\Site {
 		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action( 'init', array( $this, 'register_blocks' ), 5 );
 		parent::__construct();
 	}
 	/** This is where you can register custom post types. */
@@ -74,6 +75,18 @@ class StarterSite extends Timber\Site {
 	/** This is where you can register custom taxonomies. */
 	public function register_taxonomies() {
 
+	}
+
+	public function register_blocks() {
+		$d = dir(__DIR__ . '/blocks');
+
+		while (false !== ($entry = $d->read())) {
+			if (is_dir(__DIR__ . '/blocks/' . $entry) && ($entry != '.') && ($entry != '..')) {
+				if (file_exists(__DIR__ . '/blocks/' . $entry . '/block.json')) {
+					register_block_type( __DIR__ . '/blocks/' . $entry );
+				}
+			}
+		}
 	}
 
 	/** This is where you add some context
