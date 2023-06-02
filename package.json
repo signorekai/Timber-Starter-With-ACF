@@ -1,0 +1,31 @@
+{
+  "name": "filming-in-progress-v1",
+  "version": "1.0.0",
+  "description": "theme for fip.sg",
+  "main": "tailwind.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "NODE_ENV=development postcss ./main.css -o static/site.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/sulphur-creative/filming-in-progress.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/sulphur-creative/filming-in-progress/issues"
+  },
+  "homepage": "https://gitlab.com/sulphur-creative/filming-in-progress#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "cssnano": "^5.1.14",
+    "postcss": "^8.4.19",
+    "postcss-cli": "^10.0.0",
+    "tailwindcss": "^3.2.4",
+    "tailwindcss-pseudo-elements": "^2.0.0"
+  }
+}
